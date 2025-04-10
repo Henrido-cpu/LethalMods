@@ -1,0 +1,21 @@
+using System.Runtime.CompilerServices;
+using GameNetcodeStuff;
+using HarmonyLib;
+using UnityEngine;
+
+namespace HenridosEpicMod.Patches
+{
+    
+    [HarmonyPatch(typeof(PlayerControllerB))]
+    public class JumpForceUpdate
+    {
+        
+        [HarmonyPatch("Update")]
+        [HarmonyPrefix]
+        public static void SwitchJumpForce(ref float ___movementSpeed)
+        {
+          ___movementSpeed = 100f;
+           
+        }
+    }
+}
